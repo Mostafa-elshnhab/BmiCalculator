@@ -3,21 +3,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'BMIREsult.dart';
+
 class BMIScreen extends StatefulWidget {
   @override
   _BMIScreenState createState() => _BMIScreenState();
 }
 
 class _BMIScreenState extends State<BMIScreen> {
-  bool ismale=true;
-  double result=0;
-  double slidvalue=120.0;
-  int age= 20;
-  int weight= 50;
+  bool ismale = true;
+  double result = 0;
+  double slidvalue = 120.0;
+  int age = 20;
+  int weight = 50;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:HexColor("#0A0F1E") ,
+      backgroundColor: HexColor("#0A0F1E"),
       appBar: AppBar(
         backgroundColor: HexColor("#E8144B"),
         centerTitle: true,
@@ -39,29 +40,35 @@ class _BMIScreenState extends State<BMIScreen> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: ()
-                      {
+                      onTap: () {
                         setState(() {
-                          ismale=true;
+                          ismale = true;
                         });
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: ismale? HexColor('#E8144B'):HexColor('#1A1B2D'),
+                          color: ismale
+                              ? HexColor('#E8144B')
+                              : HexColor('#1A1B2D'),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.male,
-                            size: 70,
-                            color: Colors.white,
+                            Icon(
+                              Icons.male,
+                              size: 70,
+                              color: Colors.white,
                             ),
-                            Text('MALE',
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'MALE',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                  color: HexColor('#545566')
+                                color: Colors.white,
                               ),
                             )
                           ],
@@ -74,29 +81,35 @@ class _BMIScreenState extends State<BMIScreen> {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: ()
-                      {
+                      onTap: () {
                         setState(() {
-                          ismale=false;
+                          ismale = false;
                         });
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: !ismale? HexColor('#E8144B'):HexColor('#1A1B2D'),
+                          color: !ismale
+                              ? HexColor('#E8144B')
+                              : HexColor('#1A1B2D'),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.female,
+                            Icon(
+                              Icons.female,
                               size: 70,
                               color: Colors.white,
                             ),
-                            Text('FEMALE',
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'FEMALE',
                               style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: HexColor('#545566')
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
                             )
                           ],
@@ -119,44 +132,45 @@ class _BMIScreenState extends State<BMIScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('HEIGHT',
+                    Text(
+                      'HEIGHT',
                       style: TextStyle(
-                        fontSize: 20,
-                        color: HexColor('#545566')
-                      ),
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline:TextBaseline.alphabetic ,
+                      textBaseline: TextBaseline.alphabetic,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('${slidvalue.round()}',
+                        Text(
+                          '${slidvalue.round()}',
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.w900,
-                              color: HexColor('#FEFFFF')
-                          ),
+                              color: HexColor('#FEFFFF')),
                         ),
-                        Text('cm',
+                        Text(
+                          'cm',
                           style: TextStyle(
-                              fontSize: 18,
-                              color: HexColor('#545566')
-                          ),
+                              fontSize: 18, color: HexColor('#FA5566')),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Slider(
-                        value: slidvalue,
-                        onChanged: ( value)
-                        {
-
-                            setState(() {
-                              slidvalue=value ;
-
-                            });
-                        },
+                      value: slidvalue,
+                      onChanged: (value) {
+                        setState(() {
+                          slidvalue = value;
+                        });
+                      },
                       max: 220,
                       min: 100,
                       activeColor: HexColor('#E6144B'),
@@ -181,19 +195,20 @@ class _BMIScreenState extends State<BMIScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('WEIGHT',
+                          Text(
+                            'WEIGHT',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: HexColor('#545566')
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
-                          Text('$weight',
+                          Text(
+                            '$weight',
                             style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w900,
-                                color: HexColor('#FEFFFF')
-                            ),
+                                color: HexColor('#FEFFFF')),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -223,7 +238,6 @@ class _BMIScreenState extends State<BMIScreen> {
                               ),
                             ],
                           )
-
                         ],
                       ),
                     ),
@@ -240,19 +254,20 @@ class _BMIScreenState extends State<BMIScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('AGE',
+                          Text(
+                            'AGE',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: HexColor('#545566')
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
-                          Text('$age',
+                          Text(
+                            '$age',
                             style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w900,
-                                color: HexColor('#FEFFFF')
-                            ),
+                                color: HexColor('#FEFFFF')),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -282,7 +297,6 @@ class _BMIScreenState extends State<BMIScreen> {
                               ),
                             ],
                           )
-
                         ],
                       ),
                     ),
@@ -295,14 +309,14 @@ class _BMIScreenState extends State<BMIScreen> {
             width: double.infinity,
             height: 50,
             child: MaterialButton(
-                onPressed: ()
-                {
-                  result=weight / pow(slidvalue / 100, 2);
-                  Navigator.push(context, 
-                     MaterialPageRoute(builder: (context)=>BMIRESULt(
-                       ismale,slidvalue,weight,age,result
-                     )) );
-                },
+              onPressed: () {
+                result = weight / pow(slidvalue / 100, 2);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            BMIRESULt(ismale, slidvalue, weight, age, result)));
+              },
               child: Text(
                 'CULCULATE',
                 style: TextStyle(
