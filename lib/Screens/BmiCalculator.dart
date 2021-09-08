@@ -23,7 +23,7 @@ class _BMIScreenState extends State<BMIScreen> {
         backgroundColor: HexColor("#E8144B"),
         centerTitle: true,
         title: Text(
-          'BMI CULCULATOR',
+          'BMI CALCULATOR',
           style: TextStyle(
             fontSize: 23.0,
             fontWeight: FontWeight.bold,
@@ -318,7 +318,7 @@ class _BMIScreenState extends State<BMIScreen> {
                             BMIRESULt(ismale, slidvalue, weight, age, result)));
               },
               child: Text(
-                'CULCULATE',
+                'CALCULATE',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
